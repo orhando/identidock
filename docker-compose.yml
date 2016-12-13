@@ -1,4 +1,4 @@
-identidock:
+com.identidock:
   build: .
   ports:
     - "5000:5000"
@@ -7,15 +7,15 @@ identidock:
   volumes:
     - ./app:/app
   links:
-    - dnmonster
-    - redis
+    - com.identidock.dnmonster
+    - com.identidock.redis
 
 
-dnmonster:
+com.identidock.dnmonster:
   image: amouat/dnmonster:1.0
 
 
-redis:
+com.identidock.redis:
   image: redis:3.0
     
 

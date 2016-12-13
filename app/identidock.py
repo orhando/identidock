@@ -4,7 +4,7 @@ import hashlib
 import redis
 
 app = Flask(__name__)
-cache = redis.StrictRedis(host='redis', port=6379, db=0)
+cache = redis.StrictRedis(host='com.identidock.redis', port=6379, db=0)
 salt= "UNIQUE_SALT"
 default_name = 'Orhan Doğan'
 
@@ -108,7 +108,7 @@ def manpage():
       <div class="innertube" style="width:800px;">
         <h1 style="border-bottom: 1px solid #000;margin-bottom:40px;">Dockerized Identidock by Orhan DOĞAN</h1>
 
-  <form method="POST">
+          <form method="POST">
             <h2>
               Type a text: 
               <input type="text" name="name" value="{0}">
@@ -135,7 +135,7 @@ def get_identicon(size, name):
   image = cache.get(cache_key)
   if image is None:
     print ("Cache miss", flush=True)
-    r = requests.get('http://dnmonster:8080/monster/' + name + '?size=' + size)
+    r = requests.get('http://com.identidock.dnmonster:8080/monster/' + name + '?size=' + size)
     image = r.content
     cache.set(cache_key, image)
   
