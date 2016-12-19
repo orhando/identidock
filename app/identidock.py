@@ -10,7 +10,7 @@ default_name = 'Orhan Doğan'
 
 
 @app.route('/', methods=['GET', 'POST'])
-def manpage():
+def mainpage():
 
   name = default_name
 
